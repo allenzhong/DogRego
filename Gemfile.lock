@@ -49,6 +49,9 @@ GEM
     arel (7.1.4)
     bcrypt (3.1.11)
     bindex (0.5.0)
+    bootstrap_sb_admin_base_v2 (0.3.5)
+      font-awesome-rails
+      jquery-rails
     builder (3.2.3)
     byebug (9.0.6)
     coffee-rails (4.2.1)
@@ -204,7 +207,11 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+<<<<<<< c2c4799bfc45c3a5c35ca838c8f730d7955469a5
   bootstrap_sb_admin_base_v2!
+=======
+  bootstrap_sb_admin_base_v2
+>>>>>>> add sb_admin_template_v2
   byebug
   coffee-rails (~> 4.2)
   database_cleaner
