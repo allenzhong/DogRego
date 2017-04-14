@@ -30,7 +30,7 @@ gem 'jbuilder', '~> 2.5'
 # Authentication
 gem 'devise'
 # add sb admin template based on bootstrap
-gem 'bootstrap_sb_admin_base_v2'
+gem 'bootstrap_sb_admin_base_v2', :git => 'https://github.com/allenzhong/bootstrap_sb_admin_base_v2'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
