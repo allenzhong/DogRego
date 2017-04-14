@@ -9,8 +9,89 @@
   </head>
 
   <body>
- 		<p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
+  	<div class="wrapper">
+  		<!-- Navgation -->
+  		<nav class="navbar navbar-default navbar-static-top" role="navigation" style='margin-bottom: 0'>
+  			<!-- Nav Header -->
+  			<div class="navbar-header">
+	  			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	  				<span class="sr-only">Toggle navigation</span>
+	  				<span class="icon-bar"></span>
+	  				<span class="icon-bar"></span>
+	  				<span class="icon-bar"></span>
+	  			</button>
+	  			<a href="index.html" class="navbar-brand"></a>	
+  			</div>
+  			<!-- End Nav Header -->
+  			<ul class="nav navbar-top-links navbar-right">
+  				<li class="dropdown">
+  					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+  						<i class="fa fa-envelope fa-fw"></i>	
+  						<i class="fa fa-caret-down"></i>
+  					</a>
+  					<ul class="dropdown-menu dropdown-messages">
+  						
+  					</ul>
+  				</li>	
+  				<!-- dropdown -->
+  				<li class="dropdown">
+  					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+  						<i class="fa fa-user fa-fw"></i> 
+  						<i class="fa fa-caret-down"></i>
+  					</a>
+						<ul class="dropdown-menu dropdown-user">
+							<li>
+								<a href="#">
+									<i class="fa fa-user fa-fw"></i>
+									User Profile
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<i class="fa fa-gear fa-fw"></i>
+								</a>
+							</li>
+							<li class="divider"></li>
+							<li>
+								<a href="#">
+									<i class="fa fa-sign-out fa-fw"></i>
+									Logout
+								</a>
+							</li>
+						</ul>
+  				</li>
+  			</ul>
+	  		<!-- Sidebar -->
+	  		<div class="navbar-default sidebar" role="navigation">
+	  			<div class="siderbar-nav navbar-collapse">
+	  				<ul id="side-menu" class="nav in">
+	  					<li>
+	  						<a href="#">
+	  							<i class="fa fa-dashboard fa-fw"></i>
+	  							Dashboard
+	  						</a>
+	  					</li>
+	  				</ul>
+	  			</div>
+	  		</div>
+  		<!-- End Sidebar -->
+	  	</nav>
+	  	<!-- End Navgation -->
+	  	<div id="page-wrapper">
+	  		<div class="row">
+	  			<div class="col-lg-12">
+	  				<h1 class="page-header">Dashboard</h1>
+	  			</div>
+	  		</div>
+	  		<!-- End Row -->
+	  		<div class="row">
+				 		<p class="notice"><%= notice %></p>
+				    <p class="alert"><%= alert %></p>
+				    <%= yield %>
+	  		</div>
+	  	</div>
+	  	<!-- End Page Wrapper -->
+	  </div>
+  	<!-- Page Wrapper -->
   </body>
 </html>
