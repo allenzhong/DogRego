@@ -3,7 +3,6 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   layout :dynamic_layout
 
-
   def dynamic_layout
   	user_signed_in? ? 'application' : 'authentication'
   end
