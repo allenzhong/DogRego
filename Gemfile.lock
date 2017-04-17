@@ -49,9 +49,6 @@ GEM
     arel (7.1.4)
     bcrypt (3.1.11)
     bindex (0.5.0)
-    bootstrap_sb_admin_base_v2 (0.3.5)
-      font-awesome-rails
-      jquery-rails
     builder (3.2.3)
     byebug (9.0.6)
     coffee-rails (4.2.1)
@@ -82,8 +79,8 @@ GEM
     ffi (1.9.18)
     font-awesome-rails (4.7.0.1)
       railties (>= 3.2, < 5.1)
-    globalid (0.3.7)
-      activesupport (>= 4.1.0)
+    globalid (0.4.0)
+      activesupport (>= 4.2.0)
     i18n (0.8.1)
     jbuilder (2.6.3)
       activesupport (>= 3.0.0, < 5.2)
@@ -207,11 +204,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-<<<<<<< c2c4799bfc45c3a5c35ca838c8f730d7955469a5
   bootstrap_sb_admin_base_v2!
-=======
-  bootstrap_sb_admin_base_v2
->>>>>>> add sb_admin_template_v2
   byebug
   coffee-rails (~> 4.2)
   database_cleaner
