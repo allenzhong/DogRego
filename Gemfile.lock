@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/allenzhong/bootstrap_sb_admin_base_v2
+  revision: fca84f84f2882697262e9631e7d23858ee51b59a
+  specs:
+    bootstrap_sb_admin_base_v2 (0.3.5)
+      font-awesome-rails
+      jquery-rails
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -69,8 +77,10 @@ GEM
     faker (1.7.3)
       i18n (~> 0.5)
     ffi (1.9.18)
-    globalid (0.3.7)
-      activesupport (>= 4.1.0)
+    font-awesome-rails (4.7.0.1)
+      railties (>= 3.2, < 5.1)
+    globalid (0.4.0)
+      activesupport (>= 4.2.0)
     i18n (0.8.1)
     jbuilder (2.6.3)
       activesupport (>= 3.0.0, < 5.2)
@@ -194,6 +204,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bootstrap_sb_admin_base_v2!
   byebug
   coffee-rails (~> 4.2)
   database_cleaner
