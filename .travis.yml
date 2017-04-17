@@ -1,0 +1,13 @@
+language: ruby
+rvm:
+- 2.0.0
+- 1.9.3
+- jruby-19mode
+- rbx-2
+deploy:
+  provider: heroku
+  api_key:
+    secure: crhMAPOaBllzRrZ87SyAWife4XLZ8txMoreWwjBLzUOV4yRR4BNcyYmnyp59JL94OZPA7FZEkZcYKy0hO4rDKov2aYiEjrS6DdNfFqD94G8T+ZTIQ+Up8TerH4wTBAd1qznmcB7OLpxTPnTaSll2RZmv6tD1esUQl1cqHlM9QoNsThf8rObgYZ+CbIPKZeczFVkYiZH7PsSb+KjplfaGLfmbcA8b1J0nHnchvcWRvF2EiyKdde4qOTeLyu56iXxRQJQ80dDvqUdRAqM7dXqiaeB3i5L0GpL384HXseEOsKiOpj2mtNcq5PtLmUyPeabJRkoLuUTvRo9cRm9vg7lSKMJ6GqS5edItD1BivSFIEt213HpnClO1YDq8yXdVdzYRavLvTWJvQQriKL4QqfrP/y01CBxvdct1tv1W7JvnOwsUINj8LpX7IMTuQa+5s5FfyKunONdn3O98vIgArKdys3wM3+xTeWf5T26/tDrWX26FLVJEcrAEuukKcW4BsbkIxXAb4eTJeVrEJZeAXXlDPSMqLtFDLU1Lmd1bVXfOT+8TCIMrBKJv6Yuaob57A16u7cme2MCjOJccRcmT90DJPAdEQsCyiWUfpOUpiIOP592X36eh2hN95Zl0+DtSbivr57T7Zvm/PdNy/JYqJU4XaKRG9IgYNe9hnXh0LqcgZq0=
+  app: DogRego
+  on:
+    repo: allenzhong/DogRego
