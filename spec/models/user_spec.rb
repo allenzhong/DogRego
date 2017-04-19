@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
 	context 'Association' do
-		it 'Has one postal address' do
-			should have_one(:address)
+		it 'Has one postal profile' do
+			should have_one(:profile)
 		end
 	end
 

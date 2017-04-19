@@ -17,20 +17,20 @@ Given(/^I have login on$/) do
 end
 
 Given(/^I'm on profile page$/) do
-  visit edit_user_path(@user)
+  visit edit_profile_path(@user)
 end
 
 When(/^I fill up my first name, middle name and last name with "([^"]*)", "([^"]*)" and "([^"]*)"$/) do |first, middle, last|
-  fill_in 'user_first_name', with: first 
-  fill_in 'user_middle_name', with: middle 
-  fill_in 'user_last_name', with: last 
+  fill_in 'profile_first_name', with: first 
+  fill_in 'profile_middle_name', with: middle 
+  fill_in 'profile_last_name', with: last 
 end
 
 When(/^I fill up my postal address$/) do
-  fill_in 'user_address_street', with: 'street'
-  fill_in 'user_address_town_city', with: 'city'
-  fill_in 'user_address_postcode', with: '1010'
-  fill_in 'user_address_country', with: 'NZ'
+  fill_in 'profile_street', with: 'street'
+  fill_in 'profile_town_city', with: 'city'
+  fill_in 'profile_postcode', with: '1010'
+  fill_in 'profile_country', with: 'NZ'
 end
 
 When(/^Click 'Save'$/) do
