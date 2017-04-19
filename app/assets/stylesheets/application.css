@@ -15,3 +15,11 @@
  *= require font-awesome
  *= require bootstrap_sb_admin_base_v2
  */
+
+.warning {
+	color: red;
+}
+.shared-links {
+	font-size: 1em;
+	font-weight: normal;
+}

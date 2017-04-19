@@ -40,17 +40,18 @@ gem 'bootstrap_sb_admin_base_v2', :git => 'https://github.com/allenzhong/bootstr
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platform: :mri
   # Test
-end
-
-group :test do
+  gem 'capybara'
+  gem 'selenium-webdriver'
   gem 'faker'
   gem 'rspec-rails', '~>3.5'
   gem 'factory_girl_rails'
+  gem 'cucumber-rails', require: false
   gem 'database_cleaner'
   gem 'shoulda-matchers', '~> 3.1'
+
+  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'byebug', platform: :mri
 end
 
 group :development do
