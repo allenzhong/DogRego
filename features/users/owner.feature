@@ -10,6 +10,7 @@ Background:
 
 Scenario: Enter/Update owner's detail
 	When I fill up my first name, middle name and last name with "Sathish", "Prabhu" and "Vijaya Kumar"
+	When I fill up my postal address
 	And Click 'Save'
 	Then The page should give me notification "Saved"
 

@@ -26,6 +26,13 @@ When(/^I fill up my first name, middle name and last name with "([^"]*)", "([^"]
   fill_in 'user_last_name', with: last 
 end
 
+When(/^I fill up my postal address$/) do
+  fill_in 'user_address_street', with: 'street'
+  fill_in 'user_address_town_city', with: 'city'
+  fill_in 'user_address_postcode', with: '1010'
+  fill_in 'user_address_country', with: 'NZ'
+end
+
 When(/^Click 'Save'$/) do
   click_button "Save"
 end
