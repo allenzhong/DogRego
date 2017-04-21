@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20170419102832) do
     t.string   "street"
     t.string   "suburb"
     t.string   "town_city"
+    t.string   "country"
     t.string   "postcode"
     t.integer  "user_id"
     t.datetime "created_at",  null: false

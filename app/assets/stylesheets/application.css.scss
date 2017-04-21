@@ -15,11 +15,66 @@
  *= require font-awesome
  *= require bootstrap_sb_admin_base_v2
  */
-
+@import "bootstrap_sb_admin_base_v2";
 .warning {
 	color: red;
 }
 .shared-links {
 	font-size: 1em;
 	font-weight: normal;
+}
+
+.small-3x-row {
+	padding: 6px 0 6 0;
+	height: 34px;
+}
+
+.small-control-3x-left {
+	@extend .col-xs-4;
+	width: 32%;
+	padding-right: 0px;
+	padding-left: 0px;
+	margin-right: 2%;
+}
+
+.small-control-3x-right {
+	@extend .col-xs-4;
+	width: 32%;
+	padding-right: 0px;
+	padding-left: 0px;
+}
+
+.small-2x-row {
+	padding: 6px 0 6 0;
+	height: 34px;
+}
+
+.small-control-2x-left {
+	@extend .col-xs-4;
+	width: 49%;
+	padding-right: 0px;
+	padding-left: 0px;
+	margin-right: 2%;
+}
+
+.small-control-2x-right {
+	@extend .col-xs-4;
+	width: 49%;
+	padding-right: 0px;
+	padding-left: 0px;
+}
+
+.small-control-2x-offset-7-left {
+	@extend .col-xs-4;
+	width: 69%;
+	padding-right: 0px;
+	padding-left: 0px;
+	margin-right: 2%;
+}
+
+.small-control-2x-offset-3-right {
+	@extend .col-xs-4;
+	width: 29%;
+	padding-right: 0px;
+	padding-left: 0px;
 }

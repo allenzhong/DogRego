@@ -7,6 +7,7 @@ class CreateProfiles < ActiveRecord::Migration[5.0]
       t.string :street
       t.string :suburb
       t.string :town_city
+      t.string :country
       t.string :postcode
       t.references :user, foreign_key: true
 
