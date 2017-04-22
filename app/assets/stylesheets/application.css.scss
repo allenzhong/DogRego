@@ -78,3 +78,18 @@
 	padding-right: 0px;
 	padding-left: 0px;
 }
+
+.form-group-with-height{
+  @extend .form-group;
+  height: 50px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+@media (max-width: 768px) {
+  .form-group-with-height {
+    height: auto;
+    padding: 0px 0 0 0;
+    margin: 10px 0 10px 0;
+  }
+}
