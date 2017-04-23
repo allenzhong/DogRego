@@ -12,7 +12,7 @@ rvm:
 - 2.4.1
 
 before_script:
-- wget http://chromedriver.storage.googleapis.com/2.21/chromedriver_linux64.zip
+- wget http://chromedriver.storage.googleapis.com/2.29/chromedriver_linux64.zip
 - unzip chromedriver_linux64.zip
 - sudo chmod u+x chromedriver
 - sudo mv chromedriver /usr/bin/

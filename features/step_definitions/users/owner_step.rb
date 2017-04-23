@@ -47,9 +47,7 @@ When(/^Click "([^"]*)" to deregister$/) do |deregister|
 end
 
 When(/^Click "([^"]*)"$/) do |arg1|
-  wait = Selenium::WebDriver::Wait.new ignore: Selenium::WebDriver::Error::NoAlertPresentError
-  alert = wait.until { page.driver.browser.switch_to.alert  }
-  alert.accept
+  page.driver.browser.switch_to.alert.accept
 end
 
 Then(/^The page should redirect to login page$/) do
