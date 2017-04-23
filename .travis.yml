@@ -12,6 +12,10 @@ rvm:
 - 2.4.1
 
 before_script:
+- wget http://chromedriver.storage.googleapis.com/2.21/chromedriver_linux64.zip
+- unzip chromedriver_linux64.zip
+- sudo chmod u+x chromedriver
+- sudo mv chromedriver /usr/bin/
 - export DISPLAY=:99.0
 - "sh -e /etc/init.d/xvfb start"
 - bundle install --path vendor/bundle
