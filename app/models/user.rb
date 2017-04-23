@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+
+  has_one :profile, inverse_of: :user
+  accepts_nested_attributes_for :profile, allow_destroy: true
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -17,7 +20,11 @@ class User < ApplicationRecord
     	errors.add(:username, :invalid)
   	end
 	end
-	
+
+  def profile
+    super || build_profile
+  end
+
   def login=(login)
   	@login = login
   end
@@ -25,7 +32,6 @@ class User < ApplicationRecord
   def login
   	@login || self.username || self.email
   end
-
 
   def self.find_for_database_authentication(warden_conditions)
   	conditions = warden_conditions.dup
