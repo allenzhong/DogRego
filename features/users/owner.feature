@@ -11,12 +11,11 @@ Background:
 Scenario: Enter/Update owner's detail
 	When I fill up my first name, middle name and last name with "Sathish", "Prabhu" and "Vijaya Kumar"
 	When I fill up my postal address
-	And Click 'Save'
-	Then The page should give me notification "Saved"
-
+	And Click 'Update'
+	Then The page should give me notification "Your account has been updated successfully"
 
 @javascript
 Scenario: deregister owner
-	When Click "Deregister" to deregister
+	When Click "Deregistration" to deregister
 	And Click "OK"
 	Then The page should redirect to login page 

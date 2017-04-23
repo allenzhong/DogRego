@@ -10,5 +10,5 @@ Background:
 Scenario: login with username 
 	When I fill up  username and password 
 	And Click 'Log in' button
-  Then The page should be dashboard
+	Then The page should give notification "Signed in successfully"
 
