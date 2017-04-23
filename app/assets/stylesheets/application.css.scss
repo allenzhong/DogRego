@@ -1,0 +1,95 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require font-awesome
+ *= require bootstrap_sb_admin_base_v2
+ */
+@import "bootstrap_sb_admin_base_v2";
+.warning {
+	color: red;
+}
+.shared-links {
+	font-size: 1em;
+	font-weight: normal;
+}
+
+.small-3x-row {
+	padding: 6px 0 6 0;
+	height: 34px;
+}
+
+.small-control-3x-left {
+	@extend .col-xs-4;
+	width: 32%;
+	padding-right: 0px;
+	padding-left: 0px;
+	margin-right: 2%;
+}
+
+.small-control-3x-right {
+	@extend .col-xs-4;
+	width: 32%;
+	padding-right: 0px;
+	padding-left: 0px;
+}
+
+.small-2x-row {
+	padding: 6px 0 6 0;
+	height: 34px;
+}
+
+.small-control-2x-left {
+	@extend .col-xs-4;
+	width: 49%;
+	padding-right: 0px;
+	padding-left: 0px;
+	margin-right: 2%;
+}
+
+.small-control-2x-right {
+	@extend .col-xs-4;
+	width: 49%;
+	padding-right: 0px;
+	padding-left: 0px;
+}
+
+.small-control-2x-offset-7-left {
+	@extend .col-xs-4;
+	width: 69%;
+	padding-right: 0px;
+	padding-left: 0px;
+	margin-right: 2%;
+}
+
+.small-control-2x-offset-3-right {
+	@extend .col-xs-4;
+	width: 29%;
+	padding-right: 0px;
+	padding-left: 0px;
+}
+
+.form-group-with-height{
+  @extend .form-group;
+  height: 50px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+@media (max-width: 768px) {
+  .form-group-with-height {
+    height: auto;
+    padding: 0px 0 0 0;
+    margin: 10px 0 10px 0;
+  }
+}
