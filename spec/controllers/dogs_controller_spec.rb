@@ -26,7 +26,7 @@ RSpec.describe DogsController, type: :controller do
   # adjust the attributes here as well.
   let(:valid_attributes) {
     attributes = FactoryGirl.build(:dog).attributes
-    attributes.merge({ user_id: user.id})
+    attributes.merge({ "user_id" => user.id})
   }
 
   let(:invalid_attributes) {
@@ -45,7 +45,7 @@ RSpec.describe DogsController, type: :controller do
   describe "GET #index" do
     it "assigns all dogs as @dogs" do
       dog = Dog.create! valid_attributes
-      get :index, params: {}, session: valid_session
+      get :index, params: {}
       expect(assigns(:dogs)).to eq([dog])
     end
   end
@@ -53,14 +53,14 @@ RSpec.describe DogsController, type: :controller do
   describe "GET #show" do
     it "assigns the requested dog as @dog" do
       dog = Dog.create! valid_attributes
-      get :show, params: {id: dog.to_param}, session: valid_session
+      get :show, params: {id: dog.to_param}
       expect(assigns(:dog)).to eq(dog)
     end
   end
 
   describe "GET #new" do
     it "assigns a new dog as @dog" do
-      get :new, params: {}, session: valid_session
+      get :new, params: {}
       expect(assigns(:dog)).to be_a_new(Dog)
     end
   end
@@ -68,7 +68,7 @@ RSpec.describe DogsController, type: :controller do
   describe "GET #edit" do
     it "assigns the requested dog as @dog" do
       dog = Dog.create! valid_attributes
-      get :edit, params: {id: dog.to_param}, session: valid_session
+      get :edit, params: {id: dog.to_param}
       expect(assigns(:dog)).to eq(dog)
     end
   end
@@ -77,30 +77,30 @@ RSpec.describe DogsController, type: :controller do
     context "with valid params" do
       it "creates a new Dog" do
         expect {
-          post :create, params: {dog: valid_attributes}, session: valid_session
+          post :create, params: {dog: valid_attributes}
         }.to change(Dog, :count).by(1)
       end
 
       it "assigns a newly created dog as @dog" do
-        post :create, params: {dog: valid_attributes}, session: valid_session
+        post :create, params: {dog: valid_attributes}
         expect(assigns(:dog)).to be_a(Dog)
         expect(assigns(:dog)).to be_persisted
       end
 
       it "redirects to the created dog" do
-        post :create, params: {dog: valid_attributes}, session: valid_session
+        post :create, params: {dog: valid_attributes}
         expect(response).to redirect_to(Dog.last)
       end
     end
 
     context "with invalid params" do
       it "assigns a newly created but unsaved dog as @dog" do
-        post :create, params: {dog: invalid_attributes}, session: valid_session
+        post :create, params: {dog: invalid_attributes}
         expect(assigns(:dog)).to be_a_new(Dog)
       end
 
       it "re-renders the 'new' template" do
-        post :create, params: {dog: invalid_attributes}, session: valid_session
+        post :create, params: {dog: invalid_attributes}
         expect(response).to render_template("new")
       end
     end
@@ -114,20 +114,20 @@ RSpec.describe DogsController, type: :controller do
 
       it "updates the requested dog" do
         dog = Dog.create! valid_attributes
-        put :update, params: {id: dog.to_param, dog: new_attributes}, session: valid_session
+        put :update, params: {id: dog.to_param, dog: new_attributes}
         dog.reload
         skip("Add assertions for updated state")
       end
 
       it "assigns the requested dog as @dog" do
         dog = Dog.create! valid_attributes
-        put :update, params: {id: dog.to_param, dog: valid_attributes}, session: valid_session
+        put :update, params: {id: dog.to_param, dog: valid_attributes}
         expect(assigns(:dog)).to eq(dog)
       end
 
       it "redirects to the dog" do
         dog = Dog.create! valid_attributes
-        put :update, params: {id: dog.to_param, dog: valid_attributes}, session: valid_session
+        put :update, params: {id: dog.to_param, dog: valid_attributes}
         expect(response).to redirect_to(dog)
       end
     end
@@ -135,13 +135,13 @@ RSpec.describe DogsController, type: :controller do
     context "with invalid params" do
       it "assigns the dog as @dog" do
         dog = Dog.create! valid_attributes
-        put :update, params: {id: dog.to_param, dog: invalid_attributes}, session: valid_session
+        put :update, params: {id: dog.to_param, dog: invalid_attributes}
         expect(assigns(:dog)).to eq(dog)
       end
 
       it "re-renders the 'edit' template" do
         dog = Dog.create! valid_attributes
-        put :update, params: {id: dog.to_param, dog: invalid_attributes}, session: valid_session
+        put :update, params: {id: dog.to_param, dog: invalid_attributes}
         expect(response).to render_template("edit")
       end
     end
@@ -151,13 +151,13 @@ RSpec.describe DogsController, type: :controller do
     it "destroys the requested dog" do
       dog = Dog.create! valid_attributes
       expect {
-        delete :destroy, params: {id: dog.to_param}, session: valid_session
+        delete :destroy, params: {id: dog.to_param}
       }.to change(Dog, :count).by(-1)
     end
 
     it "redirects to the dogs list" do
       dog = Dog.create! valid_attributes
-      delete :destroy, params: {id: dog.to_param}, session: valid_session
+      delete :destroy, params: {id: dog.to_param}
       expect(response).to redirect_to(dogs_url)
     end
   end
