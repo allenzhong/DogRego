@@ -9,11 +9,11 @@ Background:
 	Given I have log on
 	Given I'm on dogs page
 
-Scenario: Create a new dog
-	When I click 'Register Dog'
-	And Fill up form
-	And Click 'Register'
-	Then The page should give me notification "Your dog regsitered"
+# Scenario: Create a new dog
+# 	When I click 'Register Dog'
+# 	And Fill up form
+# 	And Click 'Register'
+# 	Then The page should give me notification "Your dog regsitered"
 
 Scenario: Update details of dog
 	When I select first dog and enter its details
