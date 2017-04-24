@@ -18,10 +18,10 @@ ActiveRecord::Schema.define(version: 20170424025530) do
   create_table "dogs", force: :cascade do |t|
     t.string   "name"
     t.string   "breed"
-    t.datetime "date_of_birth"
+    t.date     "date_of_birth_on"
     t.integer  "user_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
     t.index ["user_id"], name: "index_dogs_on_user_id", using: :btree
   end
 
