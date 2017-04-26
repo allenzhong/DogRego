@@ -7,103 +7,34 @@
   <%= devise_error_messages! %>
 <% end %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), class: 'form-horizontal', html: { method: :put }) do |f| %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), builder:TextFieldFormBuilder, class: 'form-horizontal', html: { method: :put }) do |f| %>
 
-  <div class="form-group-with-height">
-    <%= f.label :username, class: 'col-sm-2 control-label'%>
-    <div class="col-sm-10">
-      <%= f.text_field :username, class: 'form-control', autofocus: true %>
-    </div>
-  </div>
-
-  <div class="form-group-with-height">
-    <%= f.label :email, class: 'col-sm-2 control-label' %>
-    <div class="col-sm-10">
-      <%= f.email_field :email, class: 'form-control', autofocus: true %>
-    </div>
-  </div>
+  <%= f.text_field_with_label('Username', :username, "User Name") %>
+  <%= f.text_field_with_label('Email', :email, "Email") %>
 
   <%= f.fields_for :profile do |p| %>
+    <%= p.text_fields_with_label('Name', [:first_name, :middle_name, :last_name], [3, 3, 3]) %>
 
-    <div class="form-group-with-height small-3x-row">
-      <%= p.label 'Name', class: 'col-sm-2 control-label' %>
+    <%= p.text_field_with_label('Street', :street, "Street") %>
 
-      <div class="col-sm-3">
-        <%= p.text_field :first_name, class: 'form-control', placeholder: 'First Name', autofocus: true %>
-      </div>
-      <div class="col-sm-3">
-        <%= p.text_field :middle_name, class: 'form-control', placeholder: 'Middle Name', autofocus: true %>
-      </div>
-      <div class="col-sm-3">
-        <%= p.text_field :last_name, class: 'form-control', placeholder: 'Last Name', autofocus: true %>
-      </div>
-    </div>
-
-    <div class="form-group-with-height">
-      <%= p.label 'Stree', class: 'col-sm-2 control-label' %>
-      <div class="col-sm-10">
-        <%= p.text_field :street, class: 'form-control', placeholder: 'Street', autocomplete: "off" %>
-      </div>
-    </div>
-
-    <div class="form-group-with-height small-2x-row">
-      <%= p.label 'Suburb And City', class: 'col-sm-2 control-label'%>
-      <div class="col-sm-5">
-        <%= p.text_field :suburb, class: 'form-control', placeholder: 'Suburb', autocomplete: "off" %>
-      </div>
-      <div class="col-sm-5">
-        <%= p.text_field :town_city, class: 'form-control', placeholder: 'Town/City', autocomplete: "off" %>
-      </div>
-    </div>
-
-    <div class="form-group-with-height small-2x-row">
-      <%= p.label 'Country and Postcode', class: 'col-sm-2 control-label' %>
-      <div class="col-sm-6">
-        <%= p.text_field :country, class: 'form-control', placeholder: 'Country', autocomplete: "off" %>
-      </div>
-      <div class="col-sm-4">
-        <%= p.text_field :postcode, class: 'form-control', placeholder: 'Postcode', autocomplete: "off" %>
-      </div>
-    </div>
-
+    <%= p.text_fields_with_label('Suburb And City', [:suburb, :town_city], [5, 5]) %>
+    <%= p.text_fields_with_label('Country and Postcode', [:country, :postcode], [6, 4]) %>
   <% end %>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
 
-  <div class="form-group-with-height">
-    <%= f.label :password, class: 'col-sm-2 control-label' %>
-    <div class="col-sm-10">
-      <%= f.password_field :password, class: 'form-control', autocomplete: "off" %>
-      <i>(leave blank if you don't want to change it)</i>
-      <% if @minimum_password_length %>
-        <em><%= @minimum_password_length %> characters minimum</em>
-      <% end %>
-    </div>
-  </div>
+  <%= f.password_field_with_label('Password', :password, nil, "(leave blank if you don't want to change it)") do %>
+    <% if @minimum_password_length %>
+      <em><%= @minimum_password_length %> characters minimum</em>
+    <% end %>
+  <% end %>
 
-  <div class="form-group-with-height">
-    <%= f.label :password_confirmation, class: 'col-sm-2 control-label' %>
-    <div class="col-sm-10">
-      <%= f.password_field :password_confirmation, class: 'form-control', autocomplete: "off" %>
-    </div>
-  </div>
+  <%= f.password_field_with_label('Password Confirmation', :password_confirmation) %>
+  <%= f.password_field_with_label('Current Password', :current_password, nil, "(we need your current password to confirm your changes)") %>
 
-  <div class="form-group-with-height">
-    <%= f.label :current_password, class: 'col-sm-2 control-label' %>
-    <div class="col-sm-10">
-      <%= f.password_field :current_password, class: 'form-control', autocomplete: "off" %>
-      <i>(we need your current password to confirm your changes)</i>
-    </div>
-  </div>
-
-
-  <div class="form-group-with-height actions">
-    <div class="col-sm-offset-2 col-sm-2 col-xs-12">
-      <%= f.submit "Update", class: 'btn btn-success btn-block' %>
-    </div>
-  </div>
+  <%= f.submit_with_style("Update") %>
 <% end %>
 
 <h3>Cancel my account</h3>
