@@ -19,7 +19,6 @@
 
     <%= p.text_fields_with_label('Suburb And City', [:suburb, :town_city], [5, 5]) %>
     <%= p.text_fields_with_label('Country and Postcode', [:country, :postcode], [6, 4]) %>
-
   <% end %>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -35,13 +34,7 @@
   <%= f.password_field_with_label('Password Confirmation', :password_confirmation) %>
   <%= f.password_field_with_label('Current Password', :current_password, nil, "(we need your current password to confirm your changes)") %>
 
-
-
-  <div class="form-group-with-height actions">
-    <div class="col-sm-offset-2 col-sm-2 col-xs-12">
-      <%= f.submit "Update", class: 'btn btn-success btn-block' %>
-    </div>
-  </div>
+  <%= f.submit_with_style("Update") %>
 <% end %>
 
 <h3>Cancel my account</h3>
