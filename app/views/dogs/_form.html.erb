@@ -16,7 +16,9 @@
   <%= f.text_field_with_label('Breed', :breed, "Your Dog's Breed") %>
 
   <%= f.date_picker('Date of Birth', :date_of_birth_on) %>
-  
-  <%= f.submit_with_style("Create") %>
-
+  <% if params[:action]=='new' %>
+    <%= f.submit_with_style("Save") %>
+  <% else %>
+    <%= f.submit_with_style("Update") %>
+  <% end %>
 <% end %>
