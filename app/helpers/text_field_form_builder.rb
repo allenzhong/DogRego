@@ -3,15 +3,12 @@ class TextFieldFormBuilder < ActionView::Helpers::FormBuilder
   include ActionView::Helpers::CaptureHelper
   include ActionView::Helpers::TextHelper
 
-
   def text_field_with_label(label, attribute, placeholder=nil, options={})
   	@template.content_tag :div, class: 'form-group-with-height' do
-  		label = @template.content_tag(:label, label, class: 'col-sm-2 control-label')
-  		input = @template.content_tag(:div, class: 'col-sm-10') do
+  		@template.concat(@template.content_tag(:label, label, class: 'col-sm-2 control-label'))
+  		@template.concat(@template.content_tag(:div, class: 'col-sm-10') do
   			self.text_field(attribute, { placeholder: placeholder, class: 'form-control' })
-			end
-
-      label + input
+			end)
   	end
   end
 
@@ -62,11 +59,6 @@ class TextFieldFormBuilder < ActionView::Helpers::FormBuilder
     end 
   end
   
-  # def text_field_without_label(method, tag_value, options={})
-  # 	@template.content_tag :div, css: 'form-group-with-height' do
-  # 		@template.text_field method, tag_value, {css: 'form-control'}
-  # 	end	
-  # end
   private
 
   def datepicker_javascript
