@@ -9,19 +9,19 @@ Background:
 	Given I have log on
 	Given I'm on dogs page
 
-# Scenario: Create a new dog
-# 	When I click 'Register Dog'
-# 	And Fill up form
-# 	And Click 'Register'
-# 	Then The page should give me notification "Your dog regsitered"
+Scenario: Create a new dog
+	When I click 'New Dog'
+	And Fill up form
+	And Click 'Save'
+	Then The page should be redirected to show detail
 
 Scenario: Update details of dog
 	When I select first dog and enter its details
 	And Fill up form with new name
+	And Click 'Update'
 	Then The page should give me notification "Your dog's details updated"
 	
-@javascript
-Scenario: deregister details of dog
-	When I select first dog and enter its details
-	And click "Deregister" and click "OK" for alert
-	Then The page should give me notification "Your dog's have been deregistered"
+Scenario: Delete dog
+	When I select first dog and click "Delete"
+	And Click "Ok" for alert
+	Then The page should be redirected to index page
