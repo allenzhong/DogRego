@@ -1,4 +1,6 @@
-<h1>Editing Dog</h1>
+<%= content_for(:page_header) do %>
+  Editing <%= @dog.name %>'s Detail
+<% end %>
 
 <%= render 'form', dog: @dog %>
 
