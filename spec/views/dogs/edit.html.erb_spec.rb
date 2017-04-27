@@ -2,10 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "dogs/edit", type: :view do
   before(:each) do
-    @dog = assign(:dog, Dog.create!(
-      :name => "MyString",
-      :breed => "MyString"
-    ))
+    @dog = assign(:dog, FactoryGirl.create(:dog))
   end
 
   it "renders the edit dog form" do
