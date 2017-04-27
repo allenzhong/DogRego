@@ -12,16 +12,17 @@ Background:
 Scenario: Create a new dog
 	When I click 'New Dog'
 	And Fill up form
-	And Click 'Save'
+	And Click 'Save' to save
 	Then The page should be redirected to show detail
 
 Scenario: Update details of dog
 	When I select first dog and enter its details
 	And Fill up form with new name
-	And Click 'Update'
-	Then The page should give me notification "Your dog's details updated"
+	And Click 'Update' for update
+	Then The page should notify me "Your dog's details updated"
 	
+@javascript
 Scenario: Delete dog
-	When I select first dog and click "Delete"
+	When I select first dog and click "Delete" to delete
 	And Click "Ok" for alert
 	Then The page should be redirected to index page
