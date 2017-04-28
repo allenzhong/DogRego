@@ -1,8 +1,10 @@
 <%= content_for(:page_header) do %>
-  Your Dogs - <%= @dog.name %>
+	<%= link_to 'Back', dogs_path, class: 'btn btn-default' %>
+  <%= link_to 'Edit', edit_dog_path(@dog), class: 'btn btn-warning' %>
+  <div class="pull-right">  
+    Your Dogs - <%= @dog.name %>
+  </div>
 <% end %>
-
-<p id="notice"><%= notice %></p>
 
 <p>
   <strong>Name:</strong>
@@ -19,5 +21,4 @@
   <%= @dog.date_of_birth_on %>
 </p>
 
-<%= link_to 'Edit', edit_dog_path(@dog) %> |
-<%= link_to 'Back', dogs_path %>
+

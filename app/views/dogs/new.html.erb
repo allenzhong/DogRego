@@ -1,6 +1,10 @@
 <%= content_for(:page_header) do %>
-	New Dog
+	<%= link_to 'Back', dogs_path, class: 'btn btn-default' %>
+
+  <div class="pull-right">  
+		New Dog
+  </div>
+	
 <% end %>
 <%= render 'form', dog: @dog %>
 
-<%= link_to 'Back', dogs_path %>
