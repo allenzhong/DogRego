@@ -6,7 +6,11 @@ Rails.application.routes.draw do
     resources :profile
   end
   
-  resources :dogs
+  resources :dogs do
+  	member do
+  		get 'register'
+	  end
+  end
   
   get 'dashboard/index'
 end
