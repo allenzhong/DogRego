@@ -14,10 +14,16 @@
  *= require_self
  *= require font-awesome
  *= require bootstrap_sb_admin_base_v2
+ *= require bootstrap-datetimepicker
  */
 @import "bootstrap_sb_admin_base_v2";
+
 .warning {
+	@extend .alert;
+	height: auto;
 	color: red;
+	padding: 0;
+	margin: 2px 0 5px 0;
 }
 .shared-links {
 	font-size: 1em;

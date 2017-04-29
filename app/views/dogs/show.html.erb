@@ -1,0 +1,24 @@
+<%= content_for(:page_header) do %>
+	<%= link_to 'Back', dogs_path, class: 'btn btn-default' %>
+  <%= link_to 'Edit', edit_dog_path(@dog), class: 'btn btn-warning' %>
+  <div class="pull-right">  
+    Your Dogs - <%= @dog.name %>
+  </div>
+<% end %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @dog.name %>
+</p>
+
+<p>
+  <strong>Breed:</strong>
+  <%= @dog.breed %>
+</p>
+
+<p>
+  <strong>Date of birth:</strong>
+  <%= @dog.date_of_birth_on %>
+</p>
+
+

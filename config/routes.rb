@@ -6,5 +6,7 @@ Rails.application.routes.draw do
     resources :profile
   end
   
+  resources :dogs
+  
   get 'dashboard/index'
 end
