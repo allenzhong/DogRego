@@ -31,6 +31,9 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise'
 # add sb admin template based on bootstrap
 gem 'bootstrap_sb_admin_base_v2', :git => 'https://github.com/allenzhong/bootstrap_sb_admin_base_v2'
+# for date picker
+gem 'momentjs-rails', '>= 2.9.0'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.14.30'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
@@ -49,7 +52,7 @@ group :development, :test do
   gem 'cucumber-rails', require: false
   gem 'database_cleaner'
   gem 'shoulda-matchers', '~> 3.1'
-
+  gem 'rails-controller-testing'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
 end
