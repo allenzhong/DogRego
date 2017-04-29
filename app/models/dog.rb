@@ -1,5 +1,7 @@
 class Dog < ApplicationRecord
   belongs_to :user
+  has_one :ownership_registration
+  
   validates :name, :breed, :date_of_birth_on, presence: true
   validate :validate_dated_around_now
 
