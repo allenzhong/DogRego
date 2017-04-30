@@ -1,8 +1,8 @@
 class Dog < ApplicationRecord
   belongs_to :user
   has_one :ownership_registration, inverse_of: :dog
-  accepts_nested_attributes_for :ownership_registration
-  	reject_if: proc {|attributes| ["three_months", "six_months", "twelve_months"].include? attributes[:duration]} 
+  accepts_nested_attributes_for :ownership_registration,
+  	reject_if: proc {|attributes| ["three_months", "six_months", "twelve_months"].exclude? attributes[:duration]} 
 
   validates :name, :breed, :date_of_birth_on, presence: true
   validate :validate_dated_around_now
