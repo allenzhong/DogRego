@@ -20,17 +20,17 @@ end
 
 When(/^I click 'Register' for my first dog$/) do
 	within '.table' do
-		click_on 'Register', match: :first
+		first('a.btn-circle').click
 	end
 end
 
 When(/^Select "([^"]*)" for registration$/) do |arg1|
 	expect(page).to have_content("12 months")
-	choose('group_12_month')
+	choose('12 months')
 	click_on 'Register My Dog'
 end
 
 Then(/^The page should show confirmation$/) do
-	expect(page).to have_content("is now registered for 12 months").
-	expect(page).to have_content("pay $85 to bank account 12-1234-1234-01").
+	expect(page).to have_content("is now registered for twelve months")
+	# expect(page).to have_content("pay $85 to bank account 12-1234-1234-01")
 end
