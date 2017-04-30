@@ -3,7 +3,8 @@ Breed: <%= @dog.breed %><br>
 
 <%= form_for(@dog, builder: TextFieldFormBuilder, class: 'form-horizontal') do |f| %>
   <%= f.fields_for :ownership_registration do |p| %>
-    <%= p.collection_radio_buttons :duration, OwnershipRegistration.durations, :last, :first %> 
+    <%= p.hidden_field :id %>
+    <%= p.collection_radio_buttons :duration, OwnershipRegistration.durations_for_select, :last, :first %> 
   <% end %> 
 
   <% if params[:action]=='new' %>
