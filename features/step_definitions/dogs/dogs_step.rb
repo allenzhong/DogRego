@@ -1,20 +1,28 @@
-Given(/^I have log on$/) do
+Given(/^I'm a dog owner$/) do
   @user = User.create!({
     username: 'admin1',
     email: 'admin1@admin.com',
     password: '12345678',
     password_confirmation: '12345678'
   })
-  @user.save!
+end
+
+Given(/^I have logged on$/) do
   visit new_user_session_path
   fill_in 'user_login', with: @user.username
   fill_in 'user_password', with: '12345678'
   click_button 'Log in'
   expect(page).to have_content("Signed")
+  @dog = Dog.create!({
+    name: 'Citi',
+    breed: 'Dog',
+    date_of_birth_on: '14/04/2011',
+    user: @user
+  })
 end
 
 Given(/^I'm on dogs page$/) do
-  visit dogs_path
+  visit dogs_path 
 end
 
 When(/^I click 'New Dog'$/) do
@@ -38,9 +46,6 @@ Then(/^The page should be redirected to show detail$/) do
 end
 
 When(/^I select first dog and enter its details$/) do
-  @dog = FactoryGirl.create(:dog)
-  visit dogs_path
-
   within ".table" do
     click_link "Show", match: :first
   end
@@ -61,8 +66,6 @@ Then(/^The page should notify me "([^"]*)"$/) do |arg1|
 end
 
 When(/^I select first dog and click "([^"]*)" to delete$/) do |arg1|
-  @dog = FactoryGirl.create(:dog)
-  visit dogs_path 
   within ".table" do
     click_link "Delete", match: :first
   end

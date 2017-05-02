@@ -14,7 +14,12 @@ Given(/^I have logged in$/) do
 end
 
 Given(/^I have one dog created$/) do
-	@dog = FactoryGirl.create(:dog)	
+	@dog = Dog.create!({
+    name: 'Citi',
+    breed: 'Dog',
+    date_of_birth_on: '14/04/2011',
+    user: @user
+  })
 	visit dogs_path
 end
 

@@ -4,7 +4,7 @@ I want to visit my profile
 so that I can enter, save, update or delete my details
 
 Background:
-	Given I'm an registered owner
+	Given I'm an owner
 	Given I have login on
 	Given I'm on profile page
 
