@@ -18,6 +18,7 @@ RSpec.describe "Dogs", type: :request do
 		expect(response).to redirect_to(assigns(:dog))
 		follow_redirect!
 
+		byebug
 		expect(response).to render_template(:show)
 	end
 
