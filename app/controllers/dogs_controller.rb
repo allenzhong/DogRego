@@ -3,7 +3,7 @@ class DogsController < ApplicationController
   # GET /dogs
   # GET /dogs.json
   def index
-    @dogs = Dog.all
+    @dogs = Dog.users_dogs(current_user)
   end
 
   # GET /dogs/1
@@ -41,7 +41,7 @@ class DogsController < ApplicationController
   def update
     respond_to do |format|
       if @dog.update(dog_params)
-        format.html { redirect_to @dog, notice: "Your dog's details updated." }
+        format.html { redirect_to @dog, notice: notice_info }
         format.json { render :show, status: :ok, location: @dog }
       else
         format.html { render :edit }
@@ -73,5 +73,21 @@ class DogsController < ApplicationController
     def dog_params
       params.require(:dog).permit(:name, :breed, :date_of_birth_on, :user_id,
         ownership_registration_attributes: [:id, :duration, :dog_id])
+    end
+
+    def notice_info
+      if params && params[:dog][:ownership_registration_attributes]
+        @dog.send_ownership_registeration()
+        notice_content @dog
+      else
+        "Your dog's details updated."
+      end
+    end
+
+    def notice_content(dog)
+      return <<-TEMPLATE
+        #{dog.name} is now registered for #{dog.ownership_registration.duration.humanize.downcase} 
+        You are required to pay #{AppConfig.durations[@dog.ownership_registration.duration]} into bank account 12-1234-1234-01
+      TEMPLATE
     end
 end

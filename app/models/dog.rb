@@ -7,6 +7,7 @@ class Dog < ApplicationRecord
   validates :name, :breed, :date_of_birth_on, presence: true
   validate :validate_dated_around_now
 
+  scope :users_dogs, ->(user) {where(user_id: user.id)}
   def registered?
     ownership_registration.persisted? and !ownership_registration.duration.nil?
   end
@@ -15,6 +16,17 @@ class Dog < ApplicationRecord
   	super || build_ownership_registration
   end
 
+  def send_ownership_registeration
+    DogMailer.ownership_registered(self).deliver_later
+    self.ownership_registration.email_sent = true
+    self.save
+  end
+
+  # def date_of_birth_on=(d)
+  #   unless d.blank?
+  #     Date.strptime(d, '%d/%m/%Y')
+  #   end
+  # end
   protected
 
   def validate_dated_around_now

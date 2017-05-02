@@ -42,6 +42,9 @@ gem 'bootstrap3-datetimepicker-rails', '~> 4.14.30'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# Use Sendgrid as Email Service
+gem 'sendgrid-rails'
+
 group :development, :test do
   # Test
   gem 'capybara'

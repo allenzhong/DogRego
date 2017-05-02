@@ -1,15 +1,32 @@
-Name: <%= @dog.name %><br>
-Breed: <%= @dog.breed %><br>
+<%= content_for(:page_header) do %>
+  <%= link_to 'Back', dogs_path, class: 'btn btn-default' %>
+  <div class="pull-right">  
+    Register ownership to <%= @dog.name %>
+  </div>
+<% end %>
+
+<h4>Name: <span class="owner_registration-info"><%= @dog.name %></span></h4>
+<h4>Breed: <span class="owner_registration-info"><%= @dog.breed %></span></h4>
+<h4>Date of Birth: <span class="owner_registration-info"><%= @dog.date_of_birth_on.strftime("%d/%m/%Y") %></span></h4>
+
 
 <%= form_for(@dog, builder: TextFieldFormBuilder, class: 'form-horizontal') do |f| %>
-  <%= f.fields_for :ownership_registration do |p| %>
-    <%= p.hidden_field :id %>
-    <%= p.collection_radio_buttons :duration, OwnershipRegistration.durations_for_select, :last, :first %> 
-  <% end %> 
 
-  <% if params[:action]=='new' %>
-    <%= f.submit_with_style("Save") %>
-  <% else %>
-    <%= f.submit_with_style("Update") %>
-  <% end %>
+    <%= f.fields_for :ownership_registration do |p| %>
+      
+      <fieldset class="bordered-fieldset">
+      <legend class="bordered-legend">Ownership Registration</legend>
+        <%= p.hidden_field :id %>
+        <%= p.hidden_field :dog_id %>
+        <%= p.collection_radio_buttons :duration, OwnershipRegistration.durations_for_select, :last, :first do |b| %> 
+          <div class="radio">
+            <%= b.label do %>
+              <%= b.radio_button + b.text %>
+            <% end %>
+          </div>
+        <% end %>
+      </fieldset>
+    <% end %> 
+
+    <%= f.submit "Register My Dog", class: 'btn btn-success' %>
 <% end %>

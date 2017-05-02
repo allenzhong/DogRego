@@ -1,0 +1,14 @@
+defaults: &DEFAULTS
+  durations:
+    three_months: $25
+    six_months: $65
+    twelve_months: $85
+
+development:
+  <<: *DEFAULTS
+
+test:
+  <<: *DEFAULTS
+
+production:
+  <<: *DEFAULTS
