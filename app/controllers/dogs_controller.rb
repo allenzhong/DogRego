@@ -1,9 +1,9 @@
 class DogsController < ApplicationController
-  before_action :set_dog, only: [:show, :edit, :update, :destroy]
+  before_action :set_dog, only: [:show, :edit, :update, :destroy, :register]
   # GET /dogs
   # GET /dogs.json
   def index
-    @dogs = Dog.all
+    @dogs = Dog.users_dogs(current_user)
   end
 
   # GET /dogs/1
@@ -41,7 +41,7 @@ class DogsController < ApplicationController
   def update
     respond_to do |format|
       if @dog.update(dog_params)
-        format.html { redirect_to @dog, notice: "Your dog's details updated." }
+        format.html { redirect_to @dog, notice: notice_info }
         format.json { render :show, status: :ok, location: @dog }
       else
         format.html { render :edit }
@@ -60,6 +60,9 @@ class DogsController < ApplicationController
     end
   end
 
+  def register    
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_dog
@@ -68,6 +71,23 @@ class DogsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def dog_params
-      params.require(:dog).permit(:name, :breed, :date_of_birth_on, :user_id)
+      params.require(:dog).permit(:name, :breed, :date_of_birth_on, :user_id,
+        ownership_registration_attributes: [:id, :duration, :dog_id])
+    end
+
+    def notice_info
+      if params && params[:dog][:ownership_registration_attributes]
+        @dog.send_ownership_registeration()
+        notice_content @dog
+      else
+        "Your dog's details updated."
+      end
+    end
+
+    def notice_content(dog)
+      return <<~TEMPLATE
+        #{dog.name} is now registered for #{dog.ownership_registration.duration.humanize.downcase} (#{dog.ownership_registration.start_on.strftime("%d/%m/%Y")}-#{dog.ownership_registration.will_end_on.strftime("%d/%m/%Y")}). \
+        You are required to pay #{AppConfig.durations[@dog.ownership_registration.duration]} into bank account 12-1234-1234-01
+      TEMPLATE
     end
 end

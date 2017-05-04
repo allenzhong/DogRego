@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170424025530) do
+ActiveRecord::Schema.define(version: 20170503103913) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,17 @@ ActiveRecord::Schema.define(version: 20170424025530) do
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
     t.index ["user_id"], name: "index_dogs_on_user_id", using: :btree
+  end
+
+  create_table "ownership_registrations", force: :cascade do |t|
+    t.integer  "duration"
+    t.boolean  "paid"
+    t.boolean  "email_sent"
+    t.integer  "dog_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.date     "start_on"
+    t.index ["dog_id"], name: "index_ownership_registrations_on_dog_id", using: :btree
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -60,5 +71,6 @@ ActiveRecord::Schema.define(version: 20170424025530) do
   end
 
   add_foreign_key "dogs", "users"
+  add_foreign_key "ownership_registrations", "dogs"
   add_foreign_key "profiles", "users"
 end

@@ -35,4 +35,17 @@ RSpec.describe Dog, type: :model do
       expect(1).to eq(Dog.count)
     end
   end	
+
+  context 'methods' do
+    before(:each) do
+      @ownership_registration = FactoryGirl.create(:ownership_registration)
+      @dog = @ownership_registration.dog
+    end
+
+    it 'sends an email' do
+      expect {
+        @dog.send_ownership_registeration
+      }.to have_enqueued_job.on_queue('mailers')
+    end
+  end
 end

@@ -9,5 +9,6 @@ RSpec.describe "dogs/show", type: :view do
     render
     expect(rendered).to match(@dog.name)
     expect(rendered).to match(@dog.breed)
+    expect(rendered).to match(@dog.date_of_birth_on.strftime("%d/%m/%Y"))
   end
 end
