@@ -3,10 +3,9 @@ As a owner,
 I want to look at dogs' details
 so that I can manage them.
 
-
 Background: 
-	Given I'm an registered owner
-	Given I have log on
+	Given I'm a dog owner
+	Given I have logged on
 	Given I'm on dogs page
 
 Scenario: Create a new dog

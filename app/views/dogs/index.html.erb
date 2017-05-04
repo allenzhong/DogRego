@@ -19,7 +19,19 @@
   <tbody>
     <% @dogs.each do |dog| %>
       <tr>
-        <td><%= dog.name %></td>
+        <td>
+          <%= dog.name %>
+          <% if dog.registered? %>
+            <button type="button" class="pull-right btn btn-success btn-circle" data-toggle="tooltip" data-placement="right" title="Ownership registered">
+              <i class="fa fa-address-card-o" aria-hidden="true"></i>
+            </button>    
+          <% else %>
+            <%= link_to register_dog_path(dog), class: 'pull-right btn btn-warning btn-circle' do %>
+              <i class="glyphicon glyphicon-pencil"></i>
+            <% end %>
+          <% end %>
+
+        </td>
         <td><%= dog.breed %></td>
         <td><%= dog.date_of_birth_on %></td>
         <td><%= link_to 'Show', dog %></td>

@@ -20,4 +20,10 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  activerecord:
+    attributes:
+      ownership_registration:
+        durations:
+          three_months: "3 months"
+          six_months: "6 months"
+          twelve_months: "12 months"

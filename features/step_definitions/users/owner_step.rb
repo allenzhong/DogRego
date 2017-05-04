@@ -1,4 +1,4 @@
-Given(/^I'm an registered owner$/) do
+Given(/^I'm an owner$/) do
   @user = User.create!({
     username: 'admin',
     email: 'admin@admin.com',
