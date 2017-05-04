@@ -85,8 +85,8 @@ class DogsController < ApplicationController
     end
 
     def notice_content(dog)
-      return <<-TEMPLATE
-        #{dog.name} is now registered for #{dog.ownership_registration.duration.humanize.downcase} 
+      return <<~TEMPLATE
+        #{dog.name} is now registered for #{dog.ownership_registration.duration.humanize.downcase} (#{dog.ownership_registration.start_on.strftime("%d/%m/%Y")}-#{dog.ownership_registration.will_end_on.strftime("%d/%m/%Y")}). \
         You are required to pay #{AppConfig.durations[@dog.ownership_registration.duration]} into bank account 12-1234-1234-01
       TEMPLATE
     end

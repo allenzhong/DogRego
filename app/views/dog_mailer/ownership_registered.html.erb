@@ -7,7 +7,7 @@
   <body>
     <h1>Ownership registered sucessfully</h1>
     <p>
-      You have successfully registered <%= @dog.name%> for <%= @dog.ownership_registration.duration.humanize.downcase %><br>
+      You have successfully registered <%= @dog.name%> for <%= @dog.ownership_registration.duration.humanize.downcase %> (<%= @dog.ownership_registration.start_on.strftime("%d/%m/%Y") %>-<%= @dog.ownership_registration.will_end_on.strftime("%d/%m/%Y") %>)<br>
     </p>
     <p>
       You are required to pay <%= AppConfig.durations[@dog.ownership_registration.duration] %> into bank account 12-1234-1234-01
