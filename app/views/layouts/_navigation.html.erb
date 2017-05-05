@@ -47,18 +47,22 @@
   <div class="navbar-default sidebar" role="navigation">
     <div class="siderbar-nav navbar-collapse">
       <ul id="side-menu" class="nav in">
-        <li>
-          <a href="#">
-            <i class="fa fa-dashboard fa-fw"></i>
-            Dashboard
-          </a>
-        </li>
-        <li>
-            <%= link_to dogs_path do %>
-            <i class="fa fa-paw fa-fw"></i>
-            My Dogs
+        <% if current_user.has_role? :admin %> 
+          <li>
+            <%= link_to dashboard_index_path do %>
+              <i class="fa fa-dashboard fa-fw"></i>
+              Dashboard
             <% end %>
-        </li>
+          </li>
+        <% end %>
+        <% if can? :manage, Dog %>
+          <li>
+            <%= link_to dogs_path do %>
+              <i class="fa fa-paw fa-fw"></i>
+              My Dogs
+            <% end %>
+          </li>
+        <% end %>
       </ul>
     </div>
   </div>
