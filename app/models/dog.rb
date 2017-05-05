@@ -17,6 +17,11 @@ class Dog < ApplicationRecord
   	super || build_ownership_registration
   end
 
+  def valid_duration
+    return 'Have not been registered' unless ownership_registration.persisted?
+    "#{ownership_registration.start_on.strftime("%d/%m/%Y")} - #{ownership_registration.will_end_on.strftime("%d/%m/%Y")}"
+  end
+
   def send_ownership_registeration
     DogMailer.ownership_registered(self).deliver_later
     self.ownership_registration.email_sent = true

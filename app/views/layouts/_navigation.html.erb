@@ -47,11 +47,11 @@
   <div class="navbar-default sidebar" role="navigation">
     <div class="siderbar-nav navbar-collapse">
       <ul id="side-menu" class="nav in">
-        <% if current_user.has_role? :admin %> 
+        <% if current_user.has_role? :admin %>
           <li>
-            <%= link_to dashboard_index_path do %>
-              <i class="fa fa-dashboard fa-fw"></i>
-              Dashboard
+            <%= link_to report_index_path do %>
+              <i class="fa fa-table fa-fw"></i>
+              Report
             <% end %>
           </li>
         <% end %>

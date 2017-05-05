@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
-	root to: 'dashboard#index'
+  root to: 'dashboard#index'
+
+  get 'dashboard/index'
+  get 'report/index'
 	
-  devise_for :users, :controllers => {:registrations => "users/registrations"}
+  devise_for :users, controllers: {
+    registrations: 'users/registrations'
+  }
+
   resource :user do
     resources :profile
   end
@@ -11,6 +17,4 @@ Rails.application.routes.draw do
   		get 'register'
 	  end
   end
-  
-  get 'dashboard/index'
 end

@@ -1,0 +1,39 @@
+<%= content_for(:page_header) do %>
+	Report
+<% end %>
+
+<table class='table'>
+	<thead>
+		<th>
+			Owners
+		</th>
+		<th>
+			Address
+		</th>
+		<th>
+			Dogs
+		</th>
+	</thead>
+	<tbody>
+		<% @users.each do |user| %>
+			<tr>
+				<td>
+					<%= user.profile.name %>
+				</td>
+				<td>
+					<%= user.profile.address %>	
+				</td>
+				<td>
+					<ul>
+					<% user.dogs.each do |d| %>
+						<li>
+						<p><%= d.name %>, <%= d.breed%>, <%= d.date_of_birth_on.strftime("%d/%m/%Y") %> </p>
+						<p>Ownership registration: <%= d.valid_duration %></p>
+						</li>
+					<% end %>
+					</ul>
+				</td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>

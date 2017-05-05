@@ -1,12 +1,15 @@
 class User < ApplicationRecord
-
   has_one :profile, inverse_of: :user
+  has_many :dogs
   accepts_nested_attributes_for :profile, allow_destroy: true
+
+  scope :owners, -> { where('roles_mask >= :mask', {mask: 2})}
+  scope :admins, -> { where('roles_mask = :mask1 or roles_mask = :mask2', {mask1: 1, mask2: 3})}
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  attr_accessor :login
+
 	validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/, :multiline => true
   validates :username, 
   	:presence => true,
@@ -40,9 +43,6 @@ class User < ApplicationRecord
   	elsif conditions.has_key?(:username) || conditions.has_key?(:email)
   		where(conditions.to_hash).first
   	end
-
-  	conditions[:email].downcase! if conditions[:email]
-  	where(conditions.to_hash).first
   end
 
   ROLES = %i[admin user]
