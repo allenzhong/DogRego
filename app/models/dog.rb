@@ -8,6 +8,7 @@ class Dog < ApplicationRecord
   validate :validate_dated_around_now
 
   scope :users_dogs, ->(user) {where(user_id: user.id)}
+
   def registered?
     ownership_registration.persisted? and !ownership_registration.duration.nil?
   end
@@ -22,14 +23,9 @@ class Dog < ApplicationRecord
     self.save
   end
 
-  # def date_of_birth_on=(d)
-  #   unless d.blank?
-  #     Date.strptime(d, '%d/%m/%Y')
-  #   end
-  # end
   protected
-
-  def validate_dated_around_now
-    self.errors.add(:date_of_birth_on, "is not valid") unless ((30.years.ago)..(0.years.from_now)).cover?(self.date_of_birth_on)
-  end
+  
+    def validate_dated_around_now
+      self.errors.add(:date_of_birth_on, "is not valid") unless ((30.years.ago)..(0.years.from_now)).cover?(self.date_of_birth_on)
+    end
 end

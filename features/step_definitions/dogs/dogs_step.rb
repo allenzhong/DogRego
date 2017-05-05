@@ -3,7 +3,8 @@ Given(/^I'm a dog owner$/) do
     username: 'admin1',
     email: 'admin1@admin.com',
     password: '12345678',
-    password_confirmation: '12345678'
+    password_confirmation: '12345678',
+    roles: [:user]
   })
 end
 
