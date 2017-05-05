@@ -8,7 +8,7 @@ FactoryGirl.define do
     roles [:user]
   end
 
-  factory :admin do |f|
+  factory :admin, class: User do |f|
     email { Faker::Internet.email  }
     username { Faker::Internet.user_name}
     password "password"

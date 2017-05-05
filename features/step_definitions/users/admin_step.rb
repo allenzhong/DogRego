@@ -19,7 +19,7 @@ Given(/^I'm an admin$/) do
   @admin.save!
 end
 
-When(/^I fill up username and password$/) do
+When(/^I login with my username and password$/) do
 	visit new_user_session_path
   fill_in 'user_login', with: @admin.username
   fill_in 'user_password', with: '12345678'
@@ -29,7 +29,7 @@ end
 
 Then(/^The page should display one user and dogs' information$/) do
 	expect(page).to have_content(@dog1.name)
-	expect(page).to have_content(@ownership1.duration.humanize.downcase)
+	expect(page).to have_content(@dog1.valid_duration)
 	expect(page).to have_content(@dog2.name)
-	expect(page).to have_content(@ownership2.duration.humanize.downcase)
+	expect(page).to have_content(@dog2.valid_duration)
 end
