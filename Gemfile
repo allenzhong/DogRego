@@ -29,6 +29,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 # Authentication
 gem 'devise'
+gem 'cancancan'
 # add sb admin template based on bootstrap
 gem 'bootstrap_sb_admin_base_v2', :git => 'https://github.com/allenzhong/bootstrap_sb_admin_base_v2'
 # for date picker
