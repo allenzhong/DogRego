@@ -7,6 +7,7 @@ When(/^I fill up my username, email and password with corrected format$/) do
 	fill_in 'user_email', with: 'leo@gmail.com'
 	fill_in 'user_password', with: '11111111'
 	fill_in 'user_password_confirmation', with: '11111111'
+	check 'user_roles_user'
 end
 
 When(/^Click submit button$/) do
