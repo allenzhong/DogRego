@@ -1,11 +1,12 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This application is written for a test, which was described as a dog management site for dog owners.
 
+It deployed on heroku: [DogRego](https://dogrego.herokuapp.com/)
 Things you may want to cover:
 
 * Ruby version
+    * 2.4.1
 
 * System dependencies
 
