@@ -1,5 +1,5 @@
 class ReportController < ApplicationController
 	def index
-  	@users = User.owners
+    @users = User.owners
   end
 end

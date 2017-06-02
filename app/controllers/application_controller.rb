@@ -7,12 +7,12 @@ class ApplicationController < ActionController::Base
   protected
 
   def dynamic_layout
-  	user_signed_in? ? 'application' : 'authentication'
+    user_signed_in? ? 'application' : 'authentication'
   end
 
   def configure_permitted_parameters
-  	permit_attrs = [:username, :email, :password, :password_confirmation, :remember_me]
-  	devise_parameter_sanitizer.permit :sign_up, keys: permit_attrs
-  	devise_parameter_sanitizer.permit :account_update, keys: permit_attrs
+    permit_attrs = [:username, :email, :password, :password_confirmation, :remember_me]
+    devise_parameter_sanitizer.permit :sign_up, keys: permit_attrs
+    devise_parameter_sanitizer.permit :account_update, keys: permit_attrs
   end
 end
