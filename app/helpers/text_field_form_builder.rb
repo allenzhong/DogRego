@@ -4,12 +4,12 @@ class TextFieldFormBuilder < ActionView::Helpers::FormBuilder
   include ActionView::Helpers::TextHelper
 
   def text_field_with_label(label, attribute, placeholder=nil, options={})
-  	@template.content_tag :div, class: 'form-group-with-height' do
-  		@template.concat(@template.content_tag(:label, label, class: 'col-sm-2 control-label'))
-  		@template.concat(@template.content_tag(:div, class: 'col-sm-10') do
-  			self.text_field(attribute, { placeholder: placeholder, class: 'form-control' })
-			end)
-  	end
+    @template.content_tag :div, class: 'form-group-with-height' do
+      @template.concat(@template.content_tag(:label, label, class: 'col-sm-2 control-label'))
+      @template.concat(@template.content_tag(:div, class: 'col-sm-10') do
+        self.text_field(attribute, { placeholder: placeholder, class: 'form-control' })
+      end)
+    end
   end
 
   def text_fields_with_label(label, attributes, percentage=nil, options={})
