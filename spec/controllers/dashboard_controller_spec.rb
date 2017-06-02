@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe DashboardController, type: :controller do
-	
-	login_user
+  
+  login_user
 
   describe "GET #index" do
     it "returns http success" do

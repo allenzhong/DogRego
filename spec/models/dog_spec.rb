@@ -1,11 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe Dog, type: :model do
-	context "Association" do
-		it "Belongs to a user" do
-			should belong_to(:user)
-		end
-	end
+  context "Association" do
+    it "Belongs to a user" do
+      should belong_to(:user)
+    end
+  end
 
   context 'CRUD' do
     it 'could be create' do
@@ -14,11 +14,11 @@ RSpec.describe Dog, type: :model do
     end
 
     it 'could be updated' do
-    	dog = FactoryGirl.create(:dog)
-    	dog.name = "New Name"
-    	dog.save
+      dog = FactoryGirl.create(:dog)
+      dog.name = "New Name"
+      dog.save
 
-    	expect("New Name").to eq(dog.name)
+      expect("New Name").to eq(dog.name)
     end
 
     it 'could be deleted' do
@@ -34,7 +34,7 @@ RSpec.describe Dog, type: :model do
       dog.save
       expect(1).to eq(Dog.count)
     end
-  end	
+  end 
 
   context 'methods' do
     before(:each) do
